@@ -140,11 +140,7 @@ project "png"
 
     -- project specific configuration settings
 
-    configuration { "linux" }
-
-      defines { sse_defines }
-
-      files { sse_files }
+    -- configuration { "linux" }
 
     -- -------------------------------------------------------------
     -- configuration { "linux", "Debug", "x64" }
@@ -156,7 +152,11 @@ project "png"
 
     -- project specific configuration settings
 
-    -- configuration { "linux", "Debug", "x64" }
+    configuration { "linux", "Debug", "x64" }
+
+      defines { sse_defines }
+
+      files { sse_files }
 
     -- -------------------------------------------------------------
     -- configuration { "linux", "Release", "x64" }
@@ -168,7 +168,43 @@ project "png"
 
     -- project specific configuration settings
 
-    -- configuration { "linux", "Release", "x64" }
+    configuration { "linux", "Release", "x64" }
+
+      defines { sse_defines }
+
+      files { sse_files }
+
+    -- -------------------------------------------------------------
+    -- configuration { "linux", "Debug", "ARM64" }
+    -- -------------------------------------------------------------
+
+    -- common configuration settings
+
+    dofile (_BUILD_DIR .. "/static_linux_arm64_debug.lua")
+
+    -- project specific configuration settings
+
+    configuration { "linux", "Debug", "ARM64" }
+
+      defines {
+        "PNG_ARM_NEON_OPT=0", -- turn off neon instructions as they're not supported for linux arm64
+      }
+
+    -- -------------------------------------------------------------
+    -- configuration { "linux", "Release", "ARM64" }
+    -- -------------------------------------------------------------
+
+    -- common configuration settings
+
+    dofile (_BUILD_DIR .. "/static_linux_arm64_release.lua")
+
+    -- project specific configuration settings
+
+    configuration { "linux", "Release", "ARM64" }
+
+      defines {
+        "PNG_ARM_NEON_OPT=0", -- turn off neon instructions as they're not supported for linux arm64
+      }
 
     -- -------------------------------------------------------------
   end
