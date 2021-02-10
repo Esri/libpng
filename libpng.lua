@@ -311,9 +311,7 @@ project "png"
 
     configuration { "cocoa_sim64_debug" }
 
-      defines { sse_defines }
-
-      files { sse_files }
+      files { neon_files }
 
     -- -------------------------------------------------------------
     -- configuration { "cocoa_sim64_release" }
@@ -327,9 +325,7 @@ project "png"
 
     configuration { "cocoa_sim64_release" }
 
-      defines { sse_defines }
-
-      files { sse_files }
+      files { neon_files }
 
     -- -------------------------------------------------------------
     -- configuration { "cocoa_x64_debug" }
@@ -424,9 +420,7 @@ project "png"
 
     configuration { "ios_sim64_debug" }
 
-      defines { sse_defines }
-
-      files { sse_files }
+      files { neon_files }
 
     -- -------------------------------------------------------------
     -- configuration { "ios_sim64_release" }
@@ -440,9 +434,7 @@ project "png"
 
     configuration { "ios_sim64_release" }
 
-      defines { sse_defines }
-
-      files { sse_files }
+      files { neon_files }
 
     -- -------------------------------------------------------------
   end
