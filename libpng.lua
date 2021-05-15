@@ -121,6 +121,12 @@ if (_PLATFORM_LINUX) then
 end
 
 if (_PLATFORM_MACOS) then
+  configuration { "ARM64" }
+
+  files { neon_files }
+
+  configuration { "x64" }
+
   defines { sse_defines }
 
   files { sse_files }
