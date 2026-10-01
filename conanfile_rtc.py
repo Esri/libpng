@@ -2,7 +2,7 @@ from conans import ConanFile
 
 
 class PngConan(ConanFile):
-    name = "png"
+    name = "libpng"
     version = "1.6.57"
     url = "https://github.com/Esri/libpng/tree/runtimecore"
     license = "https://github.com/Esri/libpng/blob/runtimecore/LICENSE"
@@ -22,4 +22,4 @@ class PngConan(ConanFile):
 
         # libraries
         output = "output/" + str(self.settings.platform_architecture_target) + "/staticlib"
-        self.copy("*" + self.name + "*", src=base + "../../" + output, dst=output)
+        self.copy("*png*", src=base + "../../" + output, dst=output)
